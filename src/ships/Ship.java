@@ -5,7 +5,6 @@ import interfaces.ILocation;
 import interfaces.IMeasurement;
 import interfaces.INavigation;
 import tools.Coordinates;
-import tools.Identification;
 
 public abstract class Ship implements ILocation, IIdentification, IMeasurement {
 

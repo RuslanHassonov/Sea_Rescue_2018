@@ -2,13 +2,17 @@ package tools;
 
 import ships.*;
 
-public class ShipFactory {
+public class ShipFactory extends AbstractFactory{
 
     private final static int TANKER_ID = 1;
     private final static int FERRY_ID = 2;
     private final static int CRUISESHIP_ID = 3;
     private final static int FISHER_ID = 4;
     private final static int SPEEDBOAT_ID = 5;
+
+    public ShipFactory(String typeFactory) {
+        super(typeFactory);
+    }
 
     public static Ship buildShip(int type, Coordinates location, int idNumber) {
         Ship ship = null;

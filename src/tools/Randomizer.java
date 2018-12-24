@@ -1,5 +1,6 @@
 package tools;
 
+import emergencyService.EmergencyService;
 import ships.Ship;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Randomizer {
     private static final int MAX_TOWERS = 10;
     private static final int MAX_EMERGENCYSERVICES = 8;
 
-    //fill list of ships with random ships.
+    //Create all ships.
     public static ArrayList<Ship> getShips(){
         ArrayList<Ship> listOfShips = new ArrayList<Ship>();
 
@@ -22,6 +23,18 @@ public class Randomizer {
             listOfShips.add(ShipFactory.buildShip(randomShipType, getRandomLocation(), getRandomIdentificationNumber()));
         }
         return listOfShips;
+    }
+
+    //Create all emergency services.
+    public static ArrayList<EmergencyService> getEmergencyServices(){
+        ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
+
+        for (int i = 0; i < 25 + random.nextInt(MAX_EMERGENCYSERVICES); i++){
+            int randomEmergencyServiceType = getRandomNumberInRange(1, 3);
+            listOfEmergencyServices.add(EmergencyServiceFactory.buildEmergencyService(randomEmergencyServiceType, getRandomLocation(), getRandomIdentificationNumber()));
+        }
+
+        return listOfEmergencyServices;
     }
 
     private static int getRandomNumberInRange(int min, int max) {
