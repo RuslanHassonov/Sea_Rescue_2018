@@ -38,7 +38,6 @@ public class Randomizer {
         double longitude = getRandomNumberInRange(-180, 180);
         double latitude = getRandomNumberInRange(-90, 90);
         return new Coordinates(longitude, latitude);
-
     }
 
     private static int getRandomIdentificationNumber(){
