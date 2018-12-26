@@ -1,3 +1,10 @@
+/**
+ * @Autor: Ruslan Hasanov & Lien Wittebol
+ * @Date: 20/12/2018
+ * @Project: Sea Rescue - Java examen 2018
+ * @Purpose: CoastGuard class that represents an emergency service in list emergency services
+ */
+
 package emergencyService;
 
 import tools.Coordinates;

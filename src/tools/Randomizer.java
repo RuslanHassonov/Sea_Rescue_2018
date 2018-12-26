@@ -1,3 +1,9 @@
+/**
+ * @Autor: Ruslan Hasanov & Lien Wittebol
+ * @Date: 20/12/2018
+ * @Project: Sea Rescue - Java examen 2018
+ * @Purpose: randomizer	om	collectie eenmalig te genereren
+ */
 package tools;
 
 import emergencyService.EmergencyService;

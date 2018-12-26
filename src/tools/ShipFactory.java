@@ -1,5 +1,11 @@
-package tools;
 
+package tools;
+/**
+ * @Autor: Ruslan Hasanov & Lien Wittebol
+ * @Date: 20/12/2018
+ * @Project: Sea Rescue - Java examen 2018
+ * @Purpose: factory maakt verschillende ships aan
+ */
 import ships.*;
 
 public class ShipFactory extends AbstractFactory{

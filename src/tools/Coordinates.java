@@ -1,3 +1,9 @@
+/**
+ * @Autor: Ruslan Hasanov & Lien Wittebol
+ * @Date: 20/12/2018
+ * @Project: Sea Rescue - Java examen 2018
+ * @Purpose: maakt de coördinaten van alle actoren aan
+ */
 package tools;
 
 public class Coordinates {
