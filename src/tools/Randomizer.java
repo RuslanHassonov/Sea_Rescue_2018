@@ -6,6 +6,7 @@
  */
 package tools;
 
+import controlTower.ControlTower;
 import emergencyService.EmergencyService;
 import ships.Ship;
 
@@ -41,6 +42,16 @@ public class Randomizer {
         }
 
         return listOfEmergencyServices;
+    }
+
+    //Create all control towers.
+    public static ArrayList<ControlTower> getControlTowers(){
+        ArrayList<ControlTower> listOfTowers = new ArrayList<ControlTower>();
+        for (int i = 0; i < 25 + random.nextInt(MAX_TOWERS); i++){
+            listOfTowers.add(ControlTowerFactory.buildTower(getRandomLocation(), getRandomIdentificationNumber()));
+        }
+
+        return listOfTowers;
     }
 
     private static int getRandomNumberInRange(int min, int max) {

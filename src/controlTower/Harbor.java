@@ -6,5 +6,22 @@
  */
 package controlTower;
 
-public class Harbor {
+import tools.Coordinates;
+import tools.Identification;
+
+public class Harbor extends ControlTower {
+
+    private Identification towerID;
+    //private final int TANKER_SIZE = 360; //displayed in m² (square meters)
+
+    public Harbor(Coordinates towerLocation, int towerID){
+        super(towerLocation);
+        this.towerID = new Identification("HRB-" + String.valueOf(towerID));
+    }
+
+    @Override
+    public Identification getIdentification() {
+        return towerID;
+    }
+
 }
