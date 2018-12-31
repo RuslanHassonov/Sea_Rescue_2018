@@ -6,8 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControllerSeaRescue">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -50,7 +49,7 @@
                               <Insets bottom="5.0" />
                            </padding>
                            <children>
-                              <ListView layoutX="14.0" layoutY="14.0" prefHeight="417.0" prefWidth="291.0" />
+                              <ListView fx:id="listActors" layoutX="14.0" layoutY="14.0" prefHeight="417.0" prefWidth="291.0" />
                               <GridPane layoutX="315.0" layoutY="10.0" prefHeight="172.0" prefWidth="446.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="244.0" />
@@ -64,12 +63,12 @@
                                     <HBox prefHeight="417.0" prefWidth="446.0">
                                        <children>
                                           <Label prefHeight="38.0" prefWidth="145.0" text="Ship:" />
-                                          <TextField prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="textfieldNewShip" prefHeight="31.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="enterShipButton" mnemonicParsing="false" onAction="#enterShipButtonPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -79,12 +78,12 @@
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
                                           <Label prefHeight="38.0" prefWidth="145.0" text="Control tower:" />
-                                          <TextField prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="textfieldNewControlTower" prefHeight="31.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="enterControlTowerButton" mnemonicParsing="false" onAction="#enterControlTowerButtonPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -94,12 +93,12 @@
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                                        <children>
                                           <Label prefHeight="38.0" prefWidth="145.0" text="Emergency Service:" />
-                                          <TextField prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="textfieldEmergencyService" prefHeight="31.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="enterEmergencyServiceButton" mnemonicParsing="false" onAction="#enterEmergencyServiceButtonPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
