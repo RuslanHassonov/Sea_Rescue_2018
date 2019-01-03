@@ -21,4 +21,14 @@ public class Fisher extends Ship {
     public Identification getIdentification() {
         return fisherID;
     }
+
+    @Override
+    public double getSize() {
+        return 0;
+    }
+
+    @Override
+    public double getCapacity() {
+        return 0;
+    }
 }

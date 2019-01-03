@@ -22,4 +22,14 @@ public class Ferry extends Ship {
     public Identification getIdentification() {
         return ferryID;
     }
+
+    @Override
+    public double getSize() {
+        return 0;
+    }
+
+    @Override
+    public double getCapacity() {
+        return 0;
+    }
 }

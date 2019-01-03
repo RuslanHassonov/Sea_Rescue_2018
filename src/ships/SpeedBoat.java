@@ -22,4 +22,14 @@ public class SpeedBoat extends Ship {
     public Identification getIdentification() {
         return speedBoatID;
     }
+
+    @Override
+    public double getSize() {
+        return 0;
+    }
+
+    @Override
+    public double getCapacity() {
+        return 0;
+    }
 }
