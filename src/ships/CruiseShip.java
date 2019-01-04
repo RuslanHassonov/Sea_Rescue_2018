@@ -22,4 +22,14 @@ public class CruiseShip extends Ship {
     public Identification getIdentification() {
         return cruiseShipID;
     }
+
+    @Override
+    public double getSize() {
+        return 0;
+    }
+
+    @Override
+    public double getCapacity() {
+        return 0;
+    }
 }
