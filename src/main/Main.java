@@ -6,26 +6,24 @@
  */
 package main;
 
-import controlTower.ControlTower;
-import emergencyService.EmergencyService;
-import ships.Ship;
-import tools.Randomizer;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
+public class Main extends Application{
 
-public class Main {
-
-    private static ArrayList<Ship> listOfShips;
-    private static ArrayList<EmergencyService> listOfEmergencyServices;
-    private static ArrayList<ControlTower> listOfControlTowers;
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/SeaRescueGui.fxml"));
+        primaryStage.setTitle("Sea Rescue");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
 
     public static void main(String[] args) {
-        listOfShips = Randomizer.getShips();
-        listOfEmergencyServices = Randomizer.getEmergencyServices();
-        listOfControlTowers = Randomizer.getControlTowers();
 
-        for (Ship s : listOfShips){
-            System.out.println(s.toString());
-        }
+        launch(args);
     }
 }
