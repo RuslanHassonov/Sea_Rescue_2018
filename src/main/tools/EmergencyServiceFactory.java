@@ -50,6 +50,11 @@ public class EmergencyServiceFactory extends AbstractFactory {
             emergencyService = new SeaKingHelicopter(location, idNumber);
         }
 
+
+        if (emergencyService == null){
+            throw new NullPointerException();
+        }
+
         return emergencyService;
     }
 

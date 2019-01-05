@@ -44,6 +44,8 @@ public class ControllerSeaRescue {
     private Button btn_GetNewControlTower;
     @FXML
     private Button btn_GetNewEmergencyService;
+    @FXML
+    private Button btn_ClearNewActorsList;
 
     private ArrayList<Ship> listOfShips = new ArrayList<Ship>();
     private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
@@ -134,6 +136,11 @@ public class ControllerSeaRescue {
         Actor e = getNewEmergencyService();
         lv_AllEmergencyServices.getItems().add((EmergencyService)e);
         lv_NewActors.getItems().add(e);
+    }
+
+    @FXML
+    public void clearNewActorsListBtnPressed(ActionEvent event){
+        lv_NewActors.getItems().clear();
     }
 
 

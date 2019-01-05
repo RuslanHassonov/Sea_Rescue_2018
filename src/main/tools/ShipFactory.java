@@ -65,6 +65,10 @@ public class ShipFactory extends AbstractFactory{
             newShip = new SpeedBoat(location, idNumber);
         }
 
+        if (newShip == null){
+            throw new NullPointerException();
+        }
+
         return newShip;
     }
 

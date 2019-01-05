@@ -53,7 +53,7 @@
                               <Insets bottom="5.0" />
                            </padding>
                            <children>
-                              <ListView fx:id="lv_NewActors" layoutX="14.0" layoutY="14.0" prefHeight="417.0" prefWidth="291.0" />
+                              <ListView fx:id="lv_NewActors" layoutY="7.0" prefHeight="444.0" prefWidth="305.0" />
                               <GridPane layoutX="315.0" layoutY="10.0" prefHeight="172.0" prefWidth="446.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="421.0" minWidth="10.0" prefWidth="244.0" />
@@ -70,12 +70,12 @@
                                              <padding>
                                                 <Insets right="7.0" />
                                              </padding></Label>
-                                          <TextField fx:id="tf_NewShip" prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="tf_NewShip" prefHeight="30.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="btn_GetNewShip" mnemonicParsing="false" onAction="#getNewShipBtnPressed" text="Enter new">
+                                          <Button fx:id="btn_GetNewShip" mnemonicParsing="false" onAction="#getNewShipBtnPressed" prefHeight="30.0" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -84,16 +84,16 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="145.0" text="Control Tower:">
+                                          <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="145.0" text="Emergency Service:">
                                              <padding>
                                                 <Insets right="7.0" />
                                              </padding></Label>
-                                          <TextField fx:id="tf_NewControlTower" prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="tf_NewEmergencyService" prefHeight="30.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControTowerBtnPressed" text="Enter new">
+                                          <Button fx:id="btn_GetNewEmergencyService" mnemonicParsing="false" onAction="#getNewEmergencyServiceBtnPressed" prefHeight="30.0" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -102,16 +102,16 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                                        <children>
-                                          <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="145.0" text="Emergency Service:">
+                                          <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="145.0" text="Control Tower:">
                                              <padding>
                                                 <Insets right="7.0" />
                                              </padding></Label>
-                                          <TextField fx:id="tf_NewEmergencyService" prefHeight="31.0" prefWidth="183.0">
+                                          <TextField fx:id="tf_NewControlTower" disable="true" editable="false" prefHeight="30.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="btn_GetNewEmergencyService" mnemonicParsing="false" onAction="#getNewEmergencyServiceBtnPressed" text="Enter new">
+                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControTowerBtnPressed" prefHeight="30.0" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -121,8 +121,9 @@
                                  </children>
                               </GridPane>
                               <Separator disable="true" layoutX="310.0" layoutY="183.0" prefHeight="2.0" prefWidth="447.0" />
-                              <Button fx:id="btn_GenerateAll" layoutX="465.0" layoutY="406.0" mnemonicParsing="false" onAction="#generateAllBtnPressed" text="Generate All Randomly" />
+                              <Button fx:id="btn_GenerateAll" layoutX="538.0" layoutY="406.0" mnemonicParsing="false" onAction="#generateAllBtnPressed" text="Generate All Randomly" />
                               <TextArea editable="false" layoutX="313.0" layoutY="194.0" prefHeight="200.0" prefWidth="441.0" text="How To&#10;To generate an actor, input the type of actor in corresponding field.&#10;&#10;Available types:&#10;   - Ships: Tanker, Ferry, Speed Boat, Cruise Ship, Fisher Boat.&#10;   - Emergency Services: Airplane, Sea King, Coast Guard Boat.&#10;   - Control Tower: input a random number (&lt;999) and a tower with this ID will &#10;                              be created.&#10;&#10;If you do not wish to create individual actors, click on the button below and the&#10;system will create actors automatically." />
+                              <Button fx:id="btn_ClearNewActorsList" layoutX="382.0" layoutY="406.0" mnemonicParsing="false" onAction="#clearNewActorsListBtnPressed" text="Clear New Actors List" />
                            </children>
                         </AnchorPane>
                   </content>
