@@ -7,8 +7,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -77,7 +75,7 @@
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="btn_GetNewShip" mnemonicParsing="false" onAction="#getNewShipBtnPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -95,7 +93,7 @@
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControTowerBtnPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -113,7 +111,7 @@
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button mnemonicParsing="false" text="Enter new">
+                                          <Button fx:id="btn_GetNewEmergencyService" mnemonicParsing="false" onAction="#getNewEmergencyServiceBtnPressed" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
@@ -123,7 +121,7 @@
                                  </children>
                               </GridPane>
                               <Separator disable="true" layoutX="310.0" layoutY="183.0" prefHeight="2.0" prefWidth="447.0" />
-                              <Button fx:id="btn_GenerateAll" layoutX="465.0" layoutY="406.0" mnemonicParsing="false" text="Generate All Randomly" />
+                              <Button fx:id="btn_GenerateAll" layoutX="465.0" layoutY="406.0" mnemonicParsing="false" onAction="#generateAllBtnPressed" text="Generate All Randomly" />
                               <TextArea editable="false" layoutX="313.0" layoutY="194.0" prefHeight="200.0" prefWidth="441.0" text="How To&#10;To generate an actor, input the type of actor in corresponding field.&#10;&#10;Available types:&#10;   - Ships: Tanker, Ferry, Speed Boat, Cruise Ship, Fisher Boat.&#10;   - Emergency Services: Airplane, Sea King, Coast Guard Boat.&#10;   - Control Tower: input a random number (&lt;999) and a tower with this ID will &#10;                              be created.&#10;&#10;If you do not wish to create individual actors, click on the button below and the&#10;system will create actors automatically." />
                            </children>
                         </AnchorPane>
@@ -133,48 +131,24 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0">
-                                <columns>
-                                  <TableColumn prefWidth="162.0" text="Ship ID" />
-                                  <TableColumn minWidth="-1.0" prefWidth="577.0" text="Ship Location (X : Y)" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
+                              <ListView fx:id="lv_AllShips" layoutY="7.0" prefHeight="453.0" prefWidth="398.0" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
                   <Tab text="Control Towers">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0">
-                                 <columns>
-                                    <TableColumn prefWidth="162.0" text="Tower ID" />
-                                    <TableColumn minWidth="-1.0" prefWidth="577.0" text="Tower Location" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
+                              <ListView fx:id="lv_AllControlTowers" layoutY="7.0" prefHeight="453.0" prefWidth="398.0" />
                            </children>
                         </AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="Emergency Services">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="764.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0">
-                                 <columns>
-                                    <TableColumn prefWidth="162.0" text="Service ID" />
-                                    <TableColumn minWidth="-1.0" prefWidth="577.0" text="Service Location" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
+                              <ListView fx:id="lv_AllEmergencyServices" layoutY="7.0" prefHeight="453.0" prefWidth="398.0" />
                            </children>
                         </AnchorPane>
                      </content>

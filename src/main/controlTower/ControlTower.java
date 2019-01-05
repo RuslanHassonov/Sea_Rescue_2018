@@ -27,6 +27,6 @@ public abstract class ControlTower extends Actor implements ILocation, IIdentifi
 
     @Override
     public String toString() {
-        return "Location => " + getLocation().toString() + "\nIdentification: - " + getIdentification()+"\n";
+        return String.format("-- HARBOR --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getLocation().toString());
     }
 }

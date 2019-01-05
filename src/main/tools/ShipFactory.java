@@ -20,6 +20,7 @@ public class ShipFactory extends AbstractFactory{
         super(typeFactory);
     }
 
+
     public static Ship buildShip(int type, Coordinates location, int idNumber) {
         Ship ship = null;
 
@@ -47,6 +48,24 @@ public class ShipFactory extends AbstractFactory{
         }
 
         return ship;
+    }
+
+    public static Ship buildSpecificShip(String shipName, Coordinates location, int idNumber) {
+        Ship newShip = null;
+
+        if ("TANKER".equalsIgnoreCase(shipName)) {
+            newShip = new Tanker(location, idNumber);
+        } else if ("FERRY".equalsIgnoreCase(shipName)) {
+            newShip = new Ferry(location, idNumber);
+        } else if ("CRUISE SHIP".equalsIgnoreCase(shipName) || "CRUISESHIP".equalsIgnoreCase(shipName)) {
+            newShip = new CruiseShip(location, idNumber);
+        } else if ("FISHER".equalsIgnoreCase(shipName)) {
+            newShip = new Fisher(location, idNumber);
+        } else if ("SPEED BOAT".equalsIgnoreCase(shipName) || "SPEEDBOAT".equalsIgnoreCase(shipName)) {
+            newShip = new SpeedBoat(location, idNumber);
+        }
+
+        return newShip;
     }
 
 }

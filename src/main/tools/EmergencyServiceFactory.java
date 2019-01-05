@@ -30,13 +30,27 @@ public class EmergencyServiceFactory extends AbstractFactory {
                 rescue = new CoastGuard(location, idNumber);
                 break;
             }
-            case SEAKING_ID:{
+            case SEAKING_ID: {
                 rescue = new SeaKingHelicopter(location, idNumber);
                 break;
             }
         }
 
         return rescue;
+    }
+
+    public static EmergencyService buildSpecificEmergencyService(String serviceName, Coordinates location, int idNumber) {
+        EmergencyService emergencyService = null;
+
+        if ("AIRPLANE".equalsIgnoreCase(serviceName)) {
+            emergencyService = new Airplane(location, idNumber);
+        } else if ("COAST GUARD".equalsIgnoreCase(serviceName) || "COASTGUARD".equalsIgnoreCase(serviceName)) {
+            emergencyService = new CoastGuard(location, idNumber);
+        } else if ("SEA KING".equalsIgnoreCase(serviceName) || "SEAKING".equalsIgnoreCase(serviceName)) {
+            emergencyService = new SeaKingHelicopter(location, idNumber);
+        }
+
+        return emergencyService;
     }
 
 }

@@ -27,7 +27,7 @@ public abstract class Ship extends Actor implements ILocation, IIdentification, 
 
     @Override
     public String toString() {
-        return "Location => " + getLocation().toString() + "\nIdentification: - " + getIdentification()+"\n";
+        return String.format("-- SHIP --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getLocation().toString());
     }
 
 

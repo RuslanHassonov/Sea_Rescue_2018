@@ -27,6 +27,6 @@ public abstract class EmergencyService extends Actor implements ILocation, IIden
 
     @Override
     public String toString() {
-        return "Location => " + getLocation().toString() + "\nIdentification: - " + getIdentification()+"\n";
+        return String.format("-- SOS SERVICE --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getLocation().toString());
     }
 }
