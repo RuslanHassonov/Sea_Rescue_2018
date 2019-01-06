@@ -111,7 +111,7 @@
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControTowerBtnPressed" prefHeight="30.0" text="Enter new">
+                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControlTowerBtnPressed" prefHeight="30.0" text="Create Tower">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>

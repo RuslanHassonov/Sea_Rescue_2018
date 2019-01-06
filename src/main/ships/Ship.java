@@ -9,26 +9,36 @@ package main.ships;
 import main.interfaces.IIdentification;
 import main.interfaces.ILocation;
 import main.interfaces.IMeasurement;
+import main.interfaces.Observer;
 import main.tools.Actor;
 import main.tools.Coordinates;
 
-public abstract class Ship extends Actor implements ILocation, IIdentification, IMeasurement {
+import java.awt.geom.Point2D;
+
+public abstract class Ship extends Actor implements Observer {
 
     protected Coordinates shiplocation;
 
     public Ship(Coordinates shiplocation) {
-        this.shiplocation = shiplocation;
+        super(shiplocation);
     }
 
-    @Override
-    public Coordinates getLocation() {
-        return shiplocation;
+    public double getDistance(Actor actor){
+
+        double distance = Point2D.distance(shiplocation.getLongitude(), shiplocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
+        return distance;
     }
 
+    // == Update the subject on status change==
+    public void update(){}
+
+    // == To-String override ==
     @Override
     public String toString() {
-        return String.format("-- SHIP --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getLocation().toString());
+        return String.format("-- SHIP --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getActorLocation().toString());
     }
+
+
 
 
 }

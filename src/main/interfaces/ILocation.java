@@ -9,5 +9,5 @@ package main.interfaces;
 import main.tools.Coordinates;
 
 public interface ILocation {
-    Coordinates getLocation();
+    Coordinates getActorLocation();
 }

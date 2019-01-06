@@ -27,7 +27,7 @@ public class CoastGuard extends EmergencyService {
         return 0;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return 0;
     }
 }

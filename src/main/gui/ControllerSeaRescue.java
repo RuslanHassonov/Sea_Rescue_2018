@@ -51,95 +51,98 @@ public class ControllerSeaRescue {
     private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
     private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
 
-
-    private AbstractFactory shipFactory = new ShipFactory("SHIP");
-    private AbstractFactory towerFactory = new ControlTowerFactory("CONTROLTOWER");
-    private AbstractFactory emergencyFactory = new EmergencyServiceFactory("EMERGENCY SERVICE");
-
-    public void initialize(){
+    public void initialize() {
 
     }
 
-    private void getAllActors(){
+    private void getAllActors() {
         if (listOfShips.isEmpty()) {
             listOfShips = Randomizer.getShips();
-        }else {
+        } else {
             listOfShips.addAll(Randomizer.getShips());
         }
 
-        if(listOfControlTowers.isEmpty()){
+        if (listOfControlTowers.isEmpty()) {
             listOfControlTowers = Randomizer.getControlTowers();
-        }else{
+        } else {
             listOfControlTowers.addAll(Randomizer.getControlTowers());
         }
 
-        if(listOfEmergencyServices.isEmpty()){
+        if (listOfEmergencyServices.isEmpty()) {
             listOfEmergencyServices = Randomizer.getEmergencyServices();
-        }else {
+        } else {
             listOfEmergencyServices.addAll(Randomizer.getEmergencyServices());
         }
+
+
     }
 
-    private void clearNewActorList(){
+    private void clearNewActorList() {
         lv_NewActors.getItems().clear();
     }
 
-    private Ship getNewShip(){
-        return ((ShipFactory) shipFactory).buildSpecificShip(tf_NewShip.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+    private Ship getNewShip() {
+        return ShipFactory.buildSpecificShip(tf_NewShip.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
     }
 
-    private ControlTower getNewControlTower(){
-        return ((ControlTowerFactory) towerFactory).buildTower(Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+    private ControlTower getNewControlTower() {
+        return ControlTowerFactory.buildTower(Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
     }
 
-    private EmergencyService getNewEmergencyService(){
-        return ((EmergencyServiceFactory) emergencyFactory).buildSpecificEmergencyService(tf_NewEmergencyService.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+    private EmergencyService getNewEmergencyService() {
+        return EmergencyServiceFactory.buildSpecificEmergencyService(tf_NewEmergencyService.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+    }
+
+    private double getDistanceBetweenActors(Actor actor1, Actor actor2){
+        return actor1.getDistance(actor2);
     }
 
 
     @FXML
-    public void generateAllBtnPressed(ActionEvent event){
+    public void generateAllBtnPressed(ActionEvent event) {
         getAllActors();
         clearNewActorList();
-        for (Actor s:listOfShips) {
-            lv_NewActors.getItems().add(s);
-            lv_AllShips.getItems().add((Ship) s);
-        }
 
         for (Actor c : listOfControlTowers) {
             lv_NewActors.getItems().add(c);
             lv_AllControlTowers.getItems().add((ControlTower) c);
         }
 
-        for (Actor e : listOfEmergencyServices){
+        for (Actor s : listOfShips) {
+            lv_NewActors.getItems().add(s);
+            lv_AllShips.getItems().add((Ship) s);
+
+        }
+
+        for (Actor e : listOfEmergencyServices) {
             lv_NewActors.getItems().add(e);
             lv_AllEmergencyServices.getItems().add((EmergencyService) e);
         }
     }
 
     @FXML
-    public void getNewShipBtnPressed(ActionEvent event){
+    public void getNewShipBtnPressed(ActionEvent event) {
         Actor s = getNewShip();
         lv_AllShips.getItems().add((Ship) s);
         lv_NewActors.getItems().add(s);
     }
 
     @FXML
-    public void getNewControTowerBtnPressed(ActionEvent event){
+    public void getNewControlTowerBtnPressed(ActionEvent event) {
         Actor c = getNewControlTower();
         lv_AllControlTowers.getItems().add((ControlTower) c);
         lv_NewActors.getItems().add(c);
     }
 
     @FXML
-    public void getNewEmergencyServiceBtnPressed(ActionEvent event){
+    public void getNewEmergencyServiceBtnPressed(ActionEvent event) {
         Actor e = getNewEmergencyService();
-        lv_AllEmergencyServices.getItems().add((EmergencyService)e);
+        lv_AllEmergencyServices.getItems().add((EmergencyService) e);
         lv_NewActors.getItems().add(e);
     }
 
     @FXML
-    public void clearNewActorsListBtnPressed(ActionEvent event){
+    public void clearNewActorsListBtnPressed(ActionEvent event) {
         lv_NewActors.getItems().clear();
     }
 

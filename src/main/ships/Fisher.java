@@ -25,7 +25,7 @@ public class Fisher extends Ship {
         return 0;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return 0;
     }
 }
