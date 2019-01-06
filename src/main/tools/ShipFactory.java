@@ -21,7 +21,7 @@ public class ShipFactory extends AbstractFactory{
     }
 
 
-    public static Ship buildShip(int type, Coordinates location, int idNumber) {
+    public static Ship buildRandomShip(int type, Coordinates location, int idNumber) {
         Ship ship = null;
 
         switch (type) {

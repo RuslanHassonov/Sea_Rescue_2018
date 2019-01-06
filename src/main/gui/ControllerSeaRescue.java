@@ -57,21 +57,21 @@ public class ControllerSeaRescue {
 
     private void getAllActors() {
         if (listOfShips.isEmpty()) {
-            listOfShips = Randomizer.getShips();
+            listOfShips = Randomizer.getRandomShips();
         } else {
-            listOfShips.addAll(Randomizer.getShips());
+            listOfShips.addAll(Randomizer.getRandomShips());
         }
 
         if (listOfControlTowers.isEmpty()) {
-            listOfControlTowers = Randomizer.getControlTowers();
+            listOfControlTowers = Randomizer.getRandomControlTowers();
         } else {
-            listOfControlTowers.addAll(Randomizer.getControlTowers());
+            listOfControlTowers.addAll(Randomizer.getRandomControlTowers());
         }
 
         if (listOfEmergencyServices.isEmpty()) {
-            listOfEmergencyServices = Randomizer.getEmergencyServices();
+            listOfEmergencyServices = Randomizer.getRandomEmergencyServices();
         } else {
-            listOfEmergencyServices.addAll(Randomizer.getEmergencyServices());
+            listOfEmergencyServices.addAll(Randomizer.getRandomEmergencyServices());
         }
 
 

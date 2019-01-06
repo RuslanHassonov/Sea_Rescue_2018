@@ -21,19 +21,19 @@ public class Randomizer {
     private static final int MAX_TOWERS = 10;
     private static final int MAX_EMERGENCYSERVICES = 8;
 
-    //Create all main.ships.
-    public static ArrayList<Ship> getShips(){
+    //Create Random ships.
+    public static ArrayList<Ship> getRandomShips(){
         ArrayList<Ship> listOfShips = new ArrayList<Ship>();
 
         for (int i = 0; i < 25 + random.nextInt(MAX_SHIPS); i++){
             int randomShipType = getRandomNumberInRange(1, 5);
-            listOfShips.add(ShipFactory.buildShip(randomShipType, getRandomLocation(), getRandomIdentificationNumber()));
+            listOfShips.add(ShipFactory.buildRandomShip(randomShipType, getRandomLocation(), getRandomIdentificationNumber()));
         }
         return listOfShips;
     }
 
-    //Create all emergency services.
-    public static ArrayList<EmergencyService> getEmergencyServices(){
+    //Create Random emergency services.
+    public static ArrayList<EmergencyService> getRandomEmergencyServices(){
         ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
 
         for (int i = 0; i < 25 + random.nextInt(MAX_EMERGENCYSERVICES); i++){
@@ -44,8 +44,8 @@ public class Randomizer {
         return listOfEmergencyServices;
     }
 
-    //Create all control towers.
-    public static ArrayList<ControlTower> getControlTowers(){
+    //Create Random control towers.
+    public static ArrayList<ControlTower> getRandomControlTowers(){
         ArrayList<ControlTower> listOfTowers = new ArrayList<ControlTower>();
         for (int i = 0; i < 25 + random.nextInt(MAX_TOWERS); i++){
             listOfTowers.add(ControlTowerFactory.buildTower(getRandomLocation(), getRandomIdentificationNumber()));
