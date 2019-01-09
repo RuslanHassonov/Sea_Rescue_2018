@@ -16,8 +16,6 @@ import java.awt.geom.Point2D;
 
 public abstract class EmergencyService extends Actor {
 
-    protected Coordinates rescueLocation;
-
     public EmergencyService(Coordinates rescueLocation) {
         super(rescueLocation);
     }

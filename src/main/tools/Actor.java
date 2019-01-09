@@ -12,6 +12,7 @@ import main.interfaces.ILocation;
 import main.interfaces.IMeasurement;
 
 import java.awt.geom.Point2D;
+import java.text.DecimalFormat;
 
 public abstract class Actor implements ILocation, IIdentification, IMeasurement{
 
@@ -27,6 +28,6 @@ public abstract class Actor implements ILocation, IIdentification, IMeasurement{
 
     public double getDistance(Actor actor){
         double distance = Point2D.distance(actorLocation.getLongitude(), actorLocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
-        return distance;
+        return (double) Math.round(distance * 100) / 100;
     }
 }

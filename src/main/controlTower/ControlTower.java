@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public abstract class ControlTower extends Actor implements ISubject {
 
-    protected Coordinates towerLocation;
     public ArrayList<Ship> listOfRegisteredShips;
     public ArrayList<EmergencyService> listOfEmergencyServices;
 

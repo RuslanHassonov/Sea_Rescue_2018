@@ -21,8 +21,7 @@ import main.ships.Ship;
 
 import javafx.event.ActionEvent;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class ControllerSeaRescue {
 
@@ -55,28 +54,37 @@ public class ControllerSeaRescue {
     private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
     private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
 
-    private static final int MAX_SHIPS = 25;
-    private static final int MAX_TOWERS = 10;
-    private static final int MAX_EMERGENCYSERVICES = 8;
+
+    private static final int MAX_SHIPS = 5;
+    private static final int MAX_TOWERS = 3;
+    private static final int MAX_EMERGENCYSERVICES = 3;
 
     private static Random random = new Random();
 
-    public void initialize() {
-
-    }
-
     private void getAllActors() {
-        for (int i = 0; i < 25 + random.nextInt(MAX_SHIPS); i++){
-            listOfShips.add(Randomizer.getRandomShips());
-         }
+        Ship newShip = null;
 
-        for (int i = 0; i < 25 + random.nextInt(MAX_EMERGENCYSERVICES); i++){
+        for (int i = 0; i < 3 + random.nextInt(MAX_TOWERS); i++) {
+            listOfControlTowers.add(Randomizer.getRandomControlTowers());
+        }
+
+        for (int i = 0; i < 3 + random.nextInt(MAX_EMERGENCYSERVICES); i++) {
             listOfEmergencyServices.add(Randomizer.getRandomEmergencyServices());
         }
 
-        for (int i = 0; i < 25 + random.nextInt(MAX_TOWERS); i++){
-            listOfControlTowers.add(Randomizer.getRandomControlTowers());
+        for (int i = 0; i < 3 + random.nextInt(MAX_SHIPS); i++) {
+            newShip = Randomizer.getRandomShips();
+
+            for (Actor tower : listOfControlTowers) {
+                double distance = newShip.getDistance(tower);
+
+
+            }
+
+            listOfShips.add(newShip);
         }
+
+
     }
 
     private void clearNewActorList() {
@@ -93,21 +101,6 @@ public class ControllerSeaRescue {
 
     private EmergencyService getNewEmergencyService() {
         return EmergencyServiceFactory.buildEmergencyService(tf_NewEmergencyService.getText());
-    }
-
-    private double getDistanceBetweenActors(Actor actor1, Actor actor2){
-        return actor1.getDistance(actor2);
-    }
-
-    private void registerShipsWithClosestTowers(){
-        for (Actor ship: listOfShips) {
-            ArrayList<Double> listOfDistances = new ArrayList<Double>();
-
-            for (Actor tower:listOfControlTowers){
-               double distance = getDistanceBetweenActors(ship, tower);
-               listOfDistances.add(distance);
-            }
-        }
     }
 
     @FXML
