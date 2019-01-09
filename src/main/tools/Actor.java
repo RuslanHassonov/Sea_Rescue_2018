@@ -10,7 +10,8 @@ package main.tools;
 import main.interfaces.IIdentification;
 import main.interfaces.ILocation;
 import main.interfaces.IMeasurement;
-import main.interfaces.INavigation;
+
+import java.awt.geom.Point2D;
 
 public abstract class Actor implements ILocation, IIdentification, IMeasurement{
 
@@ -24,5 +25,8 @@ public abstract class Actor implements ILocation, IIdentification, IMeasurement{
         return actorLocation;
     }
 
-    public abstract double getDistance(Actor actor);
+    public double getDistance(Actor actor){
+        double distance = Point2D.distance(actorLocation.getLongitude(), actorLocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
+        return distance;
+    }
 }

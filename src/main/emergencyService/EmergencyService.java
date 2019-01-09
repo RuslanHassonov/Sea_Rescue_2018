@@ -22,12 +22,6 @@ public abstract class EmergencyService extends Actor {
         super(rescueLocation);
     }
 
-    public double getDistance(Actor actor){
-
-        double distance = Point2D.distance(rescueLocation.getLongitude(), rescueLocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
-        return distance;
-    }
-
     @Override
     public String toString() {
         return String.format("-- SOS SERVICE --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getActorLocation().toString());

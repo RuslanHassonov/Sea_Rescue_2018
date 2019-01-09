@@ -7,11 +7,9 @@ package main.interfaces;
  * @Purpose:
  */
 
-import main.ships.Ship;
-
 public interface ISubject {
-    void registerObserver(Observer newObserver);
-    void removeObserver(Observer toBeRemovedObserver);
+    void registerObserver(IObserver newObserver);
+    void removeObserver(IObserver toBeRemovedObserver);
     void notifyObservers();
 
 }

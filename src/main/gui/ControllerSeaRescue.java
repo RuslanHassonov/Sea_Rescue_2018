@@ -9,16 +9,20 @@ package main.gui;
 
 import javafx.scene.control.Button;
 import main.controlTower.ControlTower;
+import main.controlTower.ControlTowerFactory;
 import main.emergencyService.EmergencyService;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import main.emergencyService.EmergencyServiceFactory;
+import main.ships.ShipFactory;
 import main.tools.*;
 import main.ships.Ship;
 
 import javafx.event.ActionEvent;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ControllerSeaRescue {
 
@@ -51,27 +55,27 @@ public class ControllerSeaRescue {
     private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
     private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
 
+    private static final int MAX_SHIPS = 25;
+    private static final int MAX_TOWERS = 10;
+    private static final int MAX_EMERGENCYSERVICES = 8;
+
+    private static Random random = new Random();
+
     public void initialize() {
 
     }
 
     private void getAllActors() {
-        if (listOfShips.isEmpty()) {
-            listOfShips = Randomizer.getRandomShips();
-        } else {
-            listOfShips.addAll(Randomizer.getRandomShips());
+        for (int i = 0; i < 25 + random.nextInt(MAX_SHIPS); i++){
+            listOfShips.add(Randomizer.getRandomShips());
+         }
+
+        for (int i = 0; i < 25 + random.nextInt(MAX_EMERGENCYSERVICES); i++){
+            listOfEmergencyServices.add(Randomizer.getRandomEmergencyServices());
         }
 
-        if (listOfControlTowers.isEmpty()) {
-            listOfControlTowers = Randomizer.getRandomControlTowers();
-        } else {
-            listOfControlTowers.addAll(Randomizer.getRandomControlTowers());
-        }
-
-        if (listOfEmergencyServices.isEmpty()) {
-            listOfEmergencyServices = Randomizer.getRandomEmergencyServices();
-        } else {
-            listOfEmergencyServices.addAll(Randomizer.getRandomEmergencyServices());
+        for (int i = 0; i < 25 + random.nextInt(MAX_TOWERS); i++){
+            listOfControlTowers.add(Randomizer.getRandomControlTowers());
         }
     }
 
@@ -80,7 +84,7 @@ public class ControllerSeaRescue {
     }
 
     private Ship getNewShip() {
-        return ShipFactory.buildSpecificShip(tf_NewShip.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+        return ShipFactory.buildAShip(tf_NewShip.getText());
     }
 
     private ControlTower getNewControlTower() {
@@ -88,17 +92,22 @@ public class ControllerSeaRescue {
     }
 
     private EmergencyService getNewEmergencyService() {
-        return EmergencyServiceFactory.buildSpecificEmergencyService(tf_NewEmergencyService.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+        return EmergencyServiceFactory.buildEmergencyService(tf_NewEmergencyService.getText());
     }
 
     private double getDistanceBetweenActors(Actor actor1, Actor actor2){
         return actor1.getDistance(actor2);
     }
 
-    private Actor getClosestShipToTower(){
-        Actor closestShip = null;
+    private void registerShipsWithClosestTowers(){
+        for (Actor ship: listOfShips) {
+            ArrayList<Double> listOfDistances = new ArrayList<Double>();
 
-        return closestShip;
+            for (Actor tower:listOfControlTowers){
+               double distance = getDistanceBetweenActors(ship, tower);
+               listOfDistances.add(distance);
+            }
+        }
     }
 
     @FXML

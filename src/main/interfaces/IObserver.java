@@ -7,6 +7,6 @@ package main.interfaces;
  * @Purpose:
  */
 
-public interface Observer {
+public interface IObserver {
    void update();
 }

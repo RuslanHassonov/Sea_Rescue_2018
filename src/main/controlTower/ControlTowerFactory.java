@@ -1,4 +1,4 @@
-package main.tools;
+package main.controlTower;
 
 /**
  * @Autor: Ruslan Hasanov
@@ -9,13 +9,14 @@ package main.tools;
 
 import main.controlTower.ControlTower;
 import main.controlTower.Harbor;
+import main.tools.AbstractFactory;
+import main.tools.Coordinates;
 
-public class ControlTowerFactory extends AbstractFactory{
+public class ControlTowerFactory extends AbstractFactory {
 
     public ControlTowerFactory(String typeFactory) {
         super(typeFactory);
     }
-
 
     public static ControlTower buildTower(Coordinates location, int idNumber) {
         ControlTower harbor = new Harbor(location, idNumber);
