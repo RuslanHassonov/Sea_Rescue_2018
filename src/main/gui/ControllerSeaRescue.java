@@ -7,6 +7,8 @@
 
 package main.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import main.controlTower.ControlTower;
 import main.emergencyService.EmergencyService;
@@ -50,6 +52,10 @@ public class ControllerSeaRescue {
     private ArrayList<Ship> listOfShips = new ArrayList<Ship>();
     private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
     private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
+
+    //interaction with database
+    private final Model dbQueries = new Model();
+
 
     public void initialize() {
 

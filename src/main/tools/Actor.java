@@ -25,4 +25,5 @@ public abstract class Actor implements ILocation, IIdentification, IMeasurement{
     }
 
     public abstract double getDistance(Actor actor);
+
 }
