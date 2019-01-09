@@ -10,22 +10,12 @@ import main.interfaces.IObserver;
 import main.tools.Actor;
 import main.tools.Coordinates;
 
-import java.awt.geom.Point2D;
-
-<<<<<<< HEAD
-public abstract class Ship extends Actor implements IObserver {
-=======
-public abstract class Ship extends Actor implements Observer, IMeasurement {
->>>>>>> origin/master
-
-    protected Coordinates shiplocation;
+public abstract class Ship extends Actor implements IObserver{
 
     public Ship(Coordinates shiplocation) {
         super(shiplocation);
     }
 
-<<<<<<< HEAD
-=======
     /*private double length;
     private double width;
     int capacity;
@@ -49,15 +39,6 @@ public abstract class Ship extends Actor implements Observer, IMeasurement {
         return capacity;
     }
 */
-
-    public double getDistance(Actor actor){
-
-        double distance = Point2D.distance(shiplocation.getLongitude(), shiplocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
-        return distance; }
-
-
-
->>>>>>> origin/master
     // == Update the subject on status change==
     public void update(){}
 

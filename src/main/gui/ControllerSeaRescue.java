@@ -78,7 +78,6 @@ public class ControllerSeaRescue {
             for (Actor tower : listOfControlTowers) {
                 double distance = newShip.getDistance(tower);
 
-
             }
 
             listOfShips.add(newShip);
