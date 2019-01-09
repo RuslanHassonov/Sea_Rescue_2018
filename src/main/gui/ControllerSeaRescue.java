@@ -1,5 +1,5 @@
 /**
- * @Autor: Ruslan Hasanov & Lien Wittebol
+ * @Autor: Ruslan Hasanov
  * @Date: 25/12/2018
  * @Project: Sea Rescue - Java examen 2018
  * @Purpose: Controller voor de fxml
@@ -73,8 +73,6 @@ public class ControllerSeaRescue {
         } else {
             listOfEmergencyServices.addAll(Randomizer.getRandomEmergencyServices());
         }
-
-
     }
 
     private void clearNewActorList() {
@@ -97,6 +95,11 @@ public class ControllerSeaRescue {
         return actor1.getDistance(actor2);
     }
 
+    private Actor getClosestShipToTower(){
+        Actor closestShip = null;
+
+        return closestShip;
+    }
 
     @FXML
     public void generateAllBtnPressed(ActionEvent event) {
