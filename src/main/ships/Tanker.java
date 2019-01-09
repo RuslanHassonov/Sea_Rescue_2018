@@ -14,6 +14,7 @@ public class Tanker extends Ship{
     private Identification tankerID;
     private final int TANKER_SIZE = 360; //displayed in m² (square meters)
 
+
     public Tanker(Coordinates shipLocation, int shipID){
         super(shipLocation);
         tankerID = new Identification("TNK-" + String.valueOf(shipID));

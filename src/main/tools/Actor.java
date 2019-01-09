@@ -26,8 +26,13 @@ public abstract class Actor implements ILocation, IIdentification, IMeasurement{
         return actorLocation;
     }
 
+<<<<<<< HEAD
     public double getDistance(Actor actor){
         double distance = Point2D.distance(actorLocation.getLongitude(), actorLocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
         return (double) Math.round(distance * 100) / 100;
     }
+=======
+    public abstract double getDistance(Actor actor);
+
+>>>>>>> origin/master
 }
