@@ -154,8 +154,8 @@ public class Model {
     public int addControlTower(double latitude, double longitude) {
 
         try {
-            addNewControlTower.setDouble(2, latitude);
-            addNewControlTower.setDouble(3, longitude);
+            addNewControlTower.setDouble(1, latitude);
+            addNewControlTower.setDouble(2, longitude);
 
             return addNewControlTower.executeUpdate();
         }
