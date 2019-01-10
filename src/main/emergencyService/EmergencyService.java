@@ -16,16 +16,8 @@ import java.awt.geom.Point2D;
 
 public abstract class EmergencyService extends Actor {
 
-    protected Coordinates rescueLocation;
-
     public EmergencyService(Coordinates rescueLocation) {
         super(rescueLocation);
-    }
-
-    public double getDistance(Actor actor){
-
-        double distance = Point2D.distance(rescueLocation.getLongitude(), rescueLocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
-        return distance;
     }
 
     @Override

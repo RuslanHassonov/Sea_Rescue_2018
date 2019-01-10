@@ -7,20 +7,22 @@
 
 package main.gui;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import main.controlTower.ControlTower;
+import main.controlTower.ControlTowerFactory;
 import main.emergencyService.EmergencyService;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import main.emergencyService.EmergencyServiceFactory;
+import main.interfaces.IObserver;
+import main.ships.ShipFactory;
 import main.tools.*;
 import main.ships.Ship;
 
 import javafx.event.ActionEvent;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ControllerSeaRescue {
 
@@ -32,6 +34,8 @@ public class ControllerSeaRescue {
     private ListView<ControlTower> lv_AllControlTowers;
     @FXML
     private ListView<EmergencyService> lv_AllEmergencyServices;
+    @FXML
+    private ListView<Ship> lv_registeredShips;
     @FXML
     private TextField tf_NewShip;
     @FXML
@@ -49,36 +53,59 @@ public class ControllerSeaRescue {
     @FXML
     private Button btn_ClearNewActorsList;
 
-    private ArrayList<Ship> listOfShips = new ArrayList<Ship>();
-    private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
-    private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
+    private ArrayList<Ship> listOfShips;
+    private ArrayList<ControlTower> listOfControlTowers;
+    private ArrayList<EmergencyService> listOfEmergencyServices;
 
-    //interaction with database
-    private final Model dbQueries = new Model();
+    public void initialize(){
+        listOfShips = new ArrayList<Ship>();
+        listOfControlTowers = new ArrayList<ControlTower>();
+        listOfEmergencyServices =new ArrayList<EmergencyService>();
 
-
-    public void initialize() {
-
+        lv_AllControlTowers.getSelectionModel().selectedItemProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    displayShips(newValue);
+                }
+        );
     }
 
+
+    private static final int MAX_SHIPS = 5;
+    private static final int MAX_TOWERS = 3;
+    private static final int MAX_EMERGENCYSERVICES = 3;
+
+    private static Random random = new Random();
+
     private void getAllActors() {
-        if (listOfShips.isEmpty()) {
-            listOfShips = Randomizer.getRandomShips();
-        } else {
-            listOfShips.addAll(Randomizer.getRandomShips());
+        Ship newShip = null;
+
+        for (int i = 0; i < 3 + random.nextInt(MAX_TOWERS); i++) {
+            listOfControlTowers.add(Randomizer.getRandomControlTowers());
         }
 
-        if (listOfControlTowers.isEmpty()) {
-            listOfControlTowers = Randomizer.getRandomControlTowers();
-        } else {
-            listOfControlTowers.addAll(Randomizer.getRandomControlTowers());
+        for (int i = 0; i < 3 + random.nextInt(MAX_EMERGENCYSERVICES); i++) {
+            listOfEmergencyServices.add(Randomizer.getRandomEmergencyServices());
         }
 
-        if (listOfEmergencyServices.isEmpty()) {
-            listOfEmergencyServices = Randomizer.getRandomEmergencyServices();
-        } else {
-            listOfEmergencyServices.addAll(Randomizer.getRandomEmergencyServices());
+        for (int i = 0; i < 3 + random.nextInt(MAX_SHIPS); i++) {
+            newShip = Randomizer.getRandomShips();
+            ControlTower t = null;
+            double distance = 0;
+            double closestDistance = Double.MAX_VALUE;
+
+            for (Actor tower : listOfControlTowers) {
+                distance = newShip.getDistance(tower);
+
+                if (distance < closestDistance){
+                    closestDistance = distance;
+                    t = (ControlTower) tower;
+                }
+            }
+            t.registerObserver(newShip);
+            listOfShips.add(newShip);
         }
+
+
     }
 
     private void clearNewActorList() {
@@ -86,7 +113,7 @@ public class ControllerSeaRescue {
     }
 
     private Ship getNewShip() {
-        return ShipFactory.buildSpecificShip(tf_NewShip.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+        return ShipFactory.buildAShip(tf_NewShip.getText());
     }
 
     private ControlTower getNewControlTower() {
@@ -94,17 +121,14 @@ public class ControllerSeaRescue {
     }
 
     private EmergencyService getNewEmergencyService() {
-        return EmergencyServiceFactory.buildSpecificEmergencyService(tf_NewEmergencyService.getText(), Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+        return EmergencyServiceFactory.buildEmergencyService(tf_NewEmergencyService.getText());
     }
 
-    private double getDistanceBetweenActors(Actor actor1, Actor actor2){
-        return actor1.getDistance(actor2);
-    }
+    private void displayShips(ControlTower tower){
 
-    private Actor getClosestShipToTower(){
-        Actor closestShip = null;
-
-        return closestShip;
+        for (Ship s: tower.listOfRegisteredShips){
+            lv_registeredShips.getItems().add(s);
+        }
     }
 
     @FXML

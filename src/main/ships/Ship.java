@@ -6,18 +6,11 @@
  */
 package main.ships;
 
-import main.interfaces.IIdentification;
-import main.interfaces.ILocation;
-import main.interfaces.IMeasurement;
-import main.interfaces.Observer;
+import main.interfaces.IObserver;
 import main.tools.Actor;
 import main.tools.Coordinates;
 
-import java.awt.geom.Point2D;
-
-public abstract class Ship extends Actor implements Observer, IMeasurement {
-
-    protected Coordinates shiplocation;
+public abstract class Ship extends Actor implements IObserver{
 
     public Ship(Coordinates shiplocation) {
         super(shiplocation);
@@ -46,14 +39,6 @@ public abstract class Ship extends Actor implements Observer, IMeasurement {
         return capacity;
     }
 */
-
-    public double getDistance(Actor actor){
-
-        double distance = Point2D.distance(shiplocation.getLongitude(), shiplocation.getLatitude(), actor.getActorLocation().getLongitude(),actor.getActorLocation().getLongitude());
-        return distance; }
-
-
-
     // == Update the subject on status change==
     public void update(){}
 

@@ -9,8 +9,8 @@
         <module name="Sea_Rescue_Examen_2018" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Sea_Rescue_Examen_2018" target="1.5" />
+    <bytecodeTargetLevel target="11">
+      <module name="Sea_Rescue_Examen_2018" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
