@@ -16,7 +16,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.instanceOf;
 
-public class ShipTest {
+public class TestCase {
 
     private ShipFactory shipFactory;
     private ControlTowerFactory controlTowerFactory;
