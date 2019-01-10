@@ -4,10 +4,10 @@
  * @Project: Sea Rescue - Java examen 2018
  * @Purpose: PreparedStatements used by app
  */
-package main.tools;
+/*package main.tools;
 
-import main.emergencyService.EmergencyService;
-import main.ships.Ship;
+import main.emergencyService.EEmergencyServices;
+import main.ships.EShipTypes;
 import main.controlTower.ControlTower;
 
 import java.sql.Connection;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class Model {
 
-    /*private static final String URL = "jdbc:derby://localhost:1527/searescue";
+    private static final String URL = "jdbc:derby://localhost:1527/searescue";
     private static final String USERNAME = "deitel";
     private static final String PASSWORD = "deitel";
 
@@ -57,18 +57,17 @@ public class Model {
         }
     }
 
-    //kan geen ship selecteren is abstract
-    public List<Ship> getAllShips() {
+    public List<EShipTypes> getAllShips() {
         try (ResultSet resultSet = selectAllShips.executeQuery()) {
-            List<Ship> results = new ArrayList<Ship>();
+            List<EShipTypes> results = new ArrayList<EShipTypes>();
 
             while (resultSet.next()) {
-                results.add(new Ship(
+                results.add(new EShipTypes(
                         resultSet.getString("typeShip"),
-                        resultSet.getString("longitude"),
-                        resultSet.getString("latitude"),
-                        resultSet.getString ("capacity"),
-                        resultSet.getString ("size")));
+                        resultSet.getDouble("longitude"),
+                        resultSet.getDouble("latitude"),
+                        resultSet.getInt ("capacity"),
+                        resultSet.getInt ("size")));
             }
 
             return results;
@@ -78,17 +77,17 @@ public class Model {
         return null;
     }
 
-    public List<EmergencyService> getAllEmergencyServices() {
+    public List<EEmergencyServices> getAllEmergencyServices() {
         try (ResultSet resultSet = selectAllEmergencyServices.executeQuery()) {
-            List<EmergencyService> results = new ArrayList<EmergencyService>();
+            List<EEmergencyServices> results = new ArrayList<EEmergencyServices>();
 
             while (resultSet.next()) {
-                results.add(new EmergencyService(
+                results.add(new EEmergencyServices(
                         resultSet.getString("typeService"),
-                        resultSet.getString("longitude"),
-                        resultSet.getString("latitude"),
-                        resultSet.getString("capacity"),
-                        resultSet.getString("size")) {
+                        resultSet.getDouble("longitude"),
+                        resultSet.getDouble("latitude"),
+                        resultSet.getInt("capacity"),
+                        resultSet.getInt("size")) {
                 });
             }
 
@@ -105,8 +104,8 @@ public class Model {
 
             while (resultSet.next()) {
                 results.add(new ControlTower(
-                        resultSet.getString("longitude"),
-                        resultSet.getString("latitude")) {
+                        resultSet.getDouble("longitude"),
+                        resultSet.getDouble("latitude")) {
                 });
             }
 
@@ -170,7 +169,7 @@ public class Model {
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
-    }*/
-}
+    }
+}*/
 
 

@@ -7,6 +7,7 @@
 
 package main.gui;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import main.controlTower.ControlTower;
 import main.controlTower.ControlTowerFactory;
@@ -19,6 +20,8 @@ import main.interfaces.IObserver;
 import main.ships.ShipFactory;
 import main.tools.*;
 import main.ships.Ship;
+
+import javafx.scene.control.Alert.AlertType;
 
 import javafx.event.ActionEvent;
 
@@ -56,6 +59,9 @@ public class ControllerSeaRescue {
     private ArrayList<Ship> listOfShips;
     private ArrayList<ControlTower> listOfControlTowers;
     private ArrayList<EmergencyService> listOfEmergencyServices;
+
+
+    //private final Model dbQueries = new Model();
 
     public void initialize(){
         listOfShips = new ArrayList<Ship>();
@@ -181,6 +187,17 @@ public class ControllerSeaRescue {
         Actor s = getNewShip();
         lv_AllShips.getItems().add((Ship) s);
         lv_NewActors.getItems().add(s);
+
+     /*   int result = dbQueries.addShip(
+                tf_NewShip.getText());
+
+        if (result == 1) {
+            displayAlert(Alert.AlertType.INFORMATION, "Entry Added",
+                    "New entry successfully added.");
+        } else {
+            displayAlert(Alert.AlertType.ERROR, "Entry Not Added",
+                    "Unable to add entry.");
+        }*/
     }
 
     @FXML
