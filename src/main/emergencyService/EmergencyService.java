@@ -20,6 +20,9 @@ public abstract class EmergencyService extends Actor {
         super(rescueLocation);
     }
 
+    public EmergencyService() {
+    }
+
     @Override
     public String toString() {
         return String.format("-- SOS SERVICE --%n  -ID: %s%n  -Location: %s%n", getIdentification(), getActorLocation().toString());

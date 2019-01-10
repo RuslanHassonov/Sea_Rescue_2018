@@ -28,9 +28,12 @@ public class ControlTower extends Actor implements ISubject {
     // == Constructors ==
     public ControlTower(Coordinates towerLocation, int towerID) {
         super(towerLocation);
-        this.towerID = new Identification("HRB-" + String.valueOf(towerID));
+        this.towerID = new Identification("TWR-" + String.valueOf(towerID));
         listOfRegisteredShips = new ArrayList<Ship>();
         listOfEmergencyServices = new ArrayList<EmergencyService>();
+    }
+
+    public ControlTower() {
     }
 
     // == Methods for this actor ==
