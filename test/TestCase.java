@@ -1,31 +1,18 @@
 
 import main.controlTower.ControlTower;
-import main.controlTower.ControlTowerFactory;
 import main.emergencyService.EmergencyService;
-import main.emergencyService.EmergencyServiceFactory;
 import main.emergencyService.SeaKingHelicopter;
 import main.ships.Ship;
-import main.ships.ShipFactory;
 import main.ships.Tanker;
 import main.tools.Actor;
 import main.tools.Coordinates;
-import main.tools.Identification;
 import main.tools.Randomizer;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 public class TestCase {
 
-    private ShipFactory shipFactory;
-    private ControlTowerFactory controlTowerFactory;
-    private EmergencyServiceFactory emergencyServiceFactory;
-
-    /*@Before
-    public void setUp(){
-
-    }*/
 
     @Test
     public void testCreateEmergencyService() {
