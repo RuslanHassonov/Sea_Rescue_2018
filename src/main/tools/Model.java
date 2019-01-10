@@ -4,7 +4,7 @@
  * @Project: Sea Rescue - Java examen 2018
  * @Purpose: PreparedStatements used by app
  */
-/*package main.tools;
+package main.tools;
 
 import main.emergencyService.EEmergencyServices;
 import main.ships.EShipTypes;
