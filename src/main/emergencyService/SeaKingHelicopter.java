@@ -18,6 +18,8 @@ public class SeaKingHelicopter extends EmergencyService{
         this.seaKingID = new Identification("SKH-" + String.valueOf(seaKingID));
     }
 
+    public SeaKingHelicopter() {
+    }
 
     public Identification getIdentification() {
         return seaKingID;

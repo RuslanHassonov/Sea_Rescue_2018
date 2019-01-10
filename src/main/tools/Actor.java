@@ -21,6 +21,8 @@ public abstract class Actor implements ILocation, IIdentification{
         this.actorLocation = actorLocation;
     }
 
+    public Actor() {    }
+
     public Coordinates getActorLocation(){
         return actorLocation;
     }

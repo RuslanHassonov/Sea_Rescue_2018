@@ -9,15 +9,18 @@ package main.ships;
 import main.tools.Coordinates;
 import main.tools.Identification;
 
-public class Tanker extends Ship{
+public class Tanker extends Ship {
 
     private Identification tankerID;
     private final int TANKER_SIZE = 360; //displayed in m² (square meters)
 
 
-    public Tanker(Coordinates shipLocation, int shipID){
+    public Tanker(Coordinates shipLocation, int shipID) {
         super(shipLocation);
         tankerID = new Identification("TNK-" + String.valueOf(shipID));
+    }
+
+    public Tanker() {
     }
 
     public Identification getIdentification() {
