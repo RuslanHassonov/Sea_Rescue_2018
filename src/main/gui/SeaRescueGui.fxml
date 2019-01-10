@@ -140,7 +140,9 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
-                              <ListView fx:id="lv_AllControlTowers" layoutY="7.0" prefHeight="453.0" prefWidth="398.0" />
+                              <ListView fx:id="lv_AllControlTowers" layoutY="7.0" prefHeight="453.0" prefWidth="364.0" />
+                              <ListView fx:id="lv_registeredShips" layoutX="371.0" layoutY="7.0" prefHeight="274.0" prefWidth="389.0" />
+                              <Label layoutX="371.0" layoutY="289.0" text="Select a tower from the left to view all registered ships" />
                            </children>
                         </AnchorPane>
                      </content>

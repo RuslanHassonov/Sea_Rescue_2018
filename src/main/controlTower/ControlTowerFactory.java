@@ -7,8 +7,6 @@ package main.controlTower;
  * @Purpose:
  */
 
-import main.controlTower.ControlTower;
-import main.controlTower.Harbor;
 import main.tools.AbstractFactory;
 import main.tools.Coordinates;
 
@@ -19,7 +17,8 @@ public class ControlTowerFactory extends AbstractFactory {
     }
 
     public static ControlTower buildTower(Coordinates location, int idNumber) {
-        ControlTower harbor = new Harbor(location, idNumber);
+        ControlTower harbor = new ControlTower(location, idNumber) {
+        };
 
         return harbor;
 

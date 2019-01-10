@@ -1,5 +1,7 @@
 package main.interfaces;
 
+import main.ships.Ship;
+
 /**
  * @Autor: Ruslan Hasanov
  * @Date: 20/12/2018
@@ -8,8 +10,8 @@ package main.interfaces;
  */
 
 public interface ISubject {
-    void registerObserver(IObserver newObserver);
-    void removeObserver(IObserver toBeRemovedObserver);
+    void registerObserver(Ship newObserver);
+    void removeObserver(Ship toBeRemovedObserver);
     void notifyObservers();
 
 }

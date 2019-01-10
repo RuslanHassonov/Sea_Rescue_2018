@@ -13,7 +13,7 @@ import main.interfaces.IMeasurement;
 
 import java.awt.geom.Point2D;
 
-public abstract class Actor implements ILocation, IIdentification, IMeasurement{
+public abstract class Actor implements ILocation, IIdentification{
 
     private Coordinates actorLocation;
 

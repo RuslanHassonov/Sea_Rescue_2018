@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import main.emergencyService.EmergencyServiceFactory;
+import main.interfaces.IObserver;
 import main.ships.ShipFactory;
 import main.tools.*;
 import main.ships.Ship;
@@ -34,6 +35,8 @@ public class ControllerSeaRescue {
     @FXML
     private ListView<EmergencyService> lv_AllEmergencyServices;
     @FXML
+    private ListView<Ship> lv_registeredShips;
+    @FXML
     private TextField tf_NewShip;
     @FXML
     private TextField tf_NewControlTower;
@@ -50,9 +53,21 @@ public class ControllerSeaRescue {
     @FXML
     private Button btn_ClearNewActorsList;
 
-    private ArrayList<Ship> listOfShips = new ArrayList<Ship>();
-    private ArrayList<ControlTower> listOfControlTowers = new ArrayList<ControlTower>();
-    private ArrayList<EmergencyService> listOfEmergencyServices = new ArrayList<EmergencyService>();
+    private ArrayList<Ship> listOfShips;
+    private ArrayList<ControlTower> listOfControlTowers;
+    private ArrayList<EmergencyService> listOfEmergencyServices;
+
+    public void initialize(){
+        listOfShips = new ArrayList<Ship>();
+        listOfControlTowers = new ArrayList<ControlTower>();
+        listOfEmergencyServices =new ArrayList<EmergencyService>();
+
+        lv_AllControlTowers.getSelectionModel().selectedItemProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    displayShips(newValue);
+                }
+        );
+    }
 
 
     private static final int MAX_SHIPS = 5;
@@ -74,12 +89,19 @@ public class ControllerSeaRescue {
 
         for (int i = 0; i < 3 + random.nextInt(MAX_SHIPS); i++) {
             newShip = Randomizer.getRandomShips();
+            ControlTower t = null;
+            double distance = 0;
+            double closestDistance = Double.MAX_VALUE;
 
             for (Actor tower : listOfControlTowers) {
-                double distance = newShip.getDistance(tower);
+                distance = newShip.getDistance(tower);
 
+                if (distance < closestDistance){
+                    closestDistance = distance;
+                    t = (ControlTower) tower;
+                }
             }
-
+            t.registerObserver(newShip);
             listOfShips.add(newShip);
         }
 
@@ -100,6 +122,13 @@ public class ControllerSeaRescue {
 
     private EmergencyService getNewEmergencyService() {
         return EmergencyServiceFactory.buildEmergencyService(tf_NewEmergencyService.getText());
+    }
+
+    private void displayShips(ControlTower tower){
+
+        for (Ship s: tower.listOfRegisteredShips){
+            lv_registeredShips.getItems().add(s);
+        }
     }
 
     @FXML

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class Model {
 
-    private static final String URL = "jdbc:derby://localhost:1527/searescue";
+    /*private static final String URL = "jdbc:derby://localhost:1527/searescue";
     private static final String USERNAME = "deitel";
     private static final String PASSWORD = "deitel";
 
@@ -170,7 +170,7 @@ public class Model {
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
-    }
+    }*/
 }
 
 
