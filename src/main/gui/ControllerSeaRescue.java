@@ -89,19 +89,22 @@ public class ControllerSeaRescue {
 
         for (int i = 0; i < 3 + random.nextInt(MAX_SHIPS); i++) {
             newShip = Randomizer.getRandomShips();
-            ControlTower t = null;
-            double distance = 0;
+            /*ControlTower closestTower =listOfControlTowers.get(0);
             double closestDistance = Double.MAX_VALUE;
 
             for (Actor tower : listOfControlTowers) {
-                distance = newShip.getDistance(tower);
+                double distance = newShip.getDistance(tower);
 
                 if (distance < closestDistance){
                     closestDistance = distance;
-                    t = (ControlTower) tower;
+                    closestTower = (ControlTower) tower;
                 }
+
             }
-            t.registerObserver(newShip);
+            closestTower.registerObserver(newShip);*/
+            if (!listOfControlTowers.isEmpty()) {
+                registerWithClosestTower(listOfControlTowers, newShip);
+            }
             listOfShips.add(newShip);
         }
 
@@ -113,11 +116,15 @@ public class ControllerSeaRescue {
     }
 
     private Ship getNewShip() {
-        return ShipFactory.buildAShip(tf_NewShip.getText());
+        Ship newShip = ShipFactory.buildAShip(tf_NewShip.getText());
+        if (!listOfControlTowers.isEmpty()) {
+            registerWithClosestTower(listOfControlTowers, newShip);
+        }
+        return newShip;
     }
 
     private ControlTower getNewControlTower() {
-        return ControlTowerFactory.buildTower(Randomizer.getRandomLocation(), Randomizer.getRandomIdentificationNumber());
+        return ControlTowerFactory.buildTower(Randomizer.getRandomLocation(), Integer.parseInt(tf_NewControlTower.getText()));
     }
 
     private EmergencyService getNewEmergencyService() {
@@ -125,10 +132,26 @@ public class ControllerSeaRescue {
     }
 
     private void displayShips(ControlTower tower){
-
+        lv_registeredShips.getItems().clear();
         for (Ship s: tower.listOfRegisteredShips){
             lv_registeredShips.getItems().add(s);
         }
+    }
+
+    private void registerWithClosestTower(ArrayList<ControlTower> listOfControlTowers, Ship ship){
+        ControlTower closestTower =listOfControlTowers.get(0);
+        double closestDistance = ship.getDistance(closestTower);
+
+        for (Actor tower : listOfControlTowers) {
+            double distance = ship.getDistance(tower);
+
+            if (distance < closestDistance){
+                closestDistance = distance;
+                closestTower = (ControlTower) tower;
+            }
+
+        }
+        closestTower.registerObserver(ship);
     }
 
     @FXML

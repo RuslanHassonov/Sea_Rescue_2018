@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.gui.ControllerSeaRescue">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.gui.ControllerSeaRescue">
    <top>
       <HBox>
          <children>
@@ -106,12 +106,12 @@
                                              <padding>
                                                 <Insets right="7.0" />
                                              </padding></Label>
-                                          <TextField fx:id="tf_NewControlTower" disable="true" editable="false" prefHeight="30.0" prefWidth="183.0">
+                                          <TextField fx:id="tf_NewControlTower" prefHeight="30.0" prefWidth="183.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControlTowerBtnPressed" prefHeight="30.0" text="Create Tower">
+                                          <Button fx:id="btn_GetNewControlTower" mnemonicParsing="false" onAction="#getNewControlTowerBtnPressed" prefHeight="30.0" text="Enter new">
                                              <HBox.margin>
                                                 <Insets left="5.0" top="5.0" />
                                              </HBox.margin>
